@@ -31,3 +31,6 @@ hosting.*.cache
 
 #.eslintcache
 .eslintcache
+
+#memo
+memo
