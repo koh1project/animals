@@ -34,3 +34,6 @@ hosting.*.cache
 
 #memo
 memo
+
+#debug.log
+*/debug.log
