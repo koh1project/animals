@@ -7,7 +7,7 @@ import CollectionShibes from './containers/CollectionShibes';
 
 const URL = 'https://shibe.online/api/shibes';
 
-const count = 2;
+const count = 15;
 
 const App = () => {
   const [shibes, setShibes] = useState<string[]>([]);
