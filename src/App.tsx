@@ -12,6 +12,7 @@ const count = 15;
 
 const App = () => {
   const [shibes, setShibes] = useState<string[]>([]);
+  const [bigPicture, setBigPicture] = useState<string>('');
 
   useEffect(() => {
     axios.get(`${URL}?count=${count}`).then((res) => {
@@ -22,8 +23,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <BigPicture url="https://cdn.shibe.online/shibes/77e87b281a58049bcaa7ebdf8e6cd8f2605ad6f7.jpg" />
-      <CollectionShibes urlList={shibes} />
+      <BigPicture url={bigPicture} />
+      <CollectionShibes urlList={shibes} clicked={setBigPicture} />
     </div>
   );
 };

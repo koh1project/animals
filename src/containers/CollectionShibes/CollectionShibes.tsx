@@ -4,12 +4,20 @@ import { CollectionShibes, ShibeItem } from './CollectionShibes.styles';
 
 interface collectionShibesProps {
   urlList: string[];
+  clicked: Function;
 }
 
-const collectionShibes = (props: collectionShibesProps) => (
+const collectionShibes = ({ urlList, clicked }: collectionShibesProps) => (
   <CollectionShibes cellHeight={500} cols={3}>
-    {props.urlList.map((url) => (
-      <ShibeItem key={url} onClick={() => console.log(url)} cols={1}>
+    {urlList.map((url) => (
+      <ShibeItem
+        key={url}
+        onClick={() => {
+          console.log(url);
+          clicked(url);
+        }}
+        cols={1}
+      >
         <img src={url} alt="Shibe" />
       </ShibeItem>
     ))}
