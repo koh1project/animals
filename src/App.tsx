@@ -3,7 +3,7 @@ import './App.css';
 
 import axios from 'axios';
 
-import CollectionShibes from './containers/CollectionShibes';
+import CollectionShibes from './containers/CollectionShibes/CollectionShibes';
 
 const URL = 'https://shibe.online/api/shibes';
 
