@@ -22,9 +22,6 @@ const App = () => {
   return (
     <div className="App">
       <CollectionShibes urlList={shibes} />
-      {shibes.map((shibe) => (
-        <div key={shibe}>{shibe}</div>
-      ))}
     </div>
   );
 };
