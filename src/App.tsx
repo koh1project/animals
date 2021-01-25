@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import CollectionShibes from './containers/CollectionShibes/CollectionShibes';
 import BigPicture from './containers/BigPicture/BigPicture';
+import Header from './components/Header/Header';
 
 const URL = 'https://shibe.online/api/shibes';
 
@@ -22,9 +23,10 @@ const App = () => {
   }, []);
 
   return (
-      //@TODO: Header
-      //@TODO: Spinner
-    <div className="App">
+    //@TODO: Header
+    //@TODO: Spinner
+    <div className="App" data-test="component-app">
+      <Header data-test="" />
       <BigPicture url={bigPicture} />
       <CollectionShibes urlList={shibes} clicked={setBigPicture} />
     </div>
