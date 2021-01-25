@@ -22,6 +22,8 @@ const App = () => {
   }, []);
 
   return (
+      //@TODO: Header
+      //@TODO: Spinner
     <div className="App">
       <BigPicture url={bigPicture} />
       <CollectionShibes urlList={shibes} clicked={setBigPicture} />
