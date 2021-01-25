@@ -23,7 +23,6 @@ const App = () => {
   }, []);
 
   return (
-    //@TODO: Header
     //@TODO: Spinner
     <div className="App" data-test="component-app">
       <Header data-test="" />

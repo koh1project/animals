@@ -7,7 +7,7 @@ const Header = () => (
     <HeaderContainer data-test="header">
       <AppBarContainer data-test="header-appbar">
         <ToolbarContainer data-test="header-toolbar">
-          <TypographyContainer data-test="header-typography">柴犬のいる生活</TypographyContainer>
+          <TypographyContainer data-test="header-typography">柴犬のいる暮らし</TypographyContainer>
         </ToolbarContainer>
       </AppBarContainer>
     </HeaderContainer>

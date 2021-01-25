@@ -30,6 +30,6 @@ describe('renders header without errors', () => {
   });
   test('renders heading text', () => {
     const headerTypography = findByTestAttr(wrapper, 'header-typography');
-    expect(headerTypography.text()).toBe('柴犬のいる生活');
+    expect(headerTypography.text()).toBe('柴犬のいる暮らし');
   });
 });
