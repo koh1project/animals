@@ -7,7 +7,7 @@ import CollectionShibes from './containers/CollectionShibes/CollectionShibes';
 import BigPicture from './containers/BigPicture/BigPicture';
 import Header from './components/Header/Header';
 
-const URL = 'https://shibe.online/api/shibes';
+const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
 
 const count = 15;
 
