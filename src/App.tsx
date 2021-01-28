@@ -9,7 +9,7 @@ import Header from './components/Header/Header';
 
 const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
 
-const count = 15;
+const count = 40;
 
 const App = () => {
   const [shibes, setShibes] = useState<string[]>([]);
