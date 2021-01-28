@@ -3,8 +3,10 @@ import { BigPictureStyled, EmptyBigPictureStyled } from './BigPicture.styles';
 
 import urlProps from '../../interfaces/urlPropType';
 
-interface BigPictureProps {
-  [key: string]: any;
+interface BigPictureProps extends Record<string, string | undefined> {
+  // [key: string]: any;
+  'data-test': string;
+  src?: string;
 }
 
 const BigPicture = ({ url }: urlProps) => {
