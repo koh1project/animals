@@ -16,10 +16,16 @@ const App = () => {
   const [bigPicture, setBigPicture] = useState<string>('');
 
   useEffect(() => {
-    axios.get(`${URL}?count=${count}`).then((res) => {
-      const shibeResponse: string[] = res.data;
-      setShibes(shibeResponse);
-    });
+    axios
+      .get(`${URL}?count=${count}`, {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then((res) => {
+        const shibeResponse: string[] = res.data;
+        setShibes(shibeResponse);
+      });
   }, []);
 
   return (
