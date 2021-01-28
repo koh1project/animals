@@ -1,27 +1,37 @@
 import React from 'react';
 
-import { CollectionShibes, ShibeItem } from './CollectionShibes.styles';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import { CollectionShibesContainer, ShibeItem } from './CollectionShibes.styles';
 
 interface collectionShibesProps {
   urlList: string[];
   clicked: Function;
 }
 
-const collectionShibes = ({ urlList, clicked }: collectionShibesProps) => (
-  <CollectionShibes cellHeight={500} cols={3}>
-    {urlList.map((url) => (
-      <ShibeItem
-        key={url}
-        onClick={() => {
-          console.log(url);
-          clicked(url);
-        }}
-        cols={1}
-      >
-        <img src={url} alt="Shibe" />
-      </ShibeItem>
-    ))}
-  </CollectionShibes>
-);
+const CollectionShibes = ({ urlList, clicked }: collectionShibesProps) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const numCol = matches ? 2 : 3;
 
-export default collectionShibes;
+  const cellHeight = 150;
+  return (
+    <CollectionShibesContainer cellHeight={cellHeight} cols={numCol}>
+      {urlList.map((url) => (
+        <ShibeItem
+          key={url}
+          onClick={() => {
+            console.log(url);
+            clicked(url);
+          }}
+          cols={1}
+        >
+          <img src={url} alt="Shibe" height={cellHeight} />
+        </ShibeItem>
+      ))}
+    </CollectionShibesContainer>
+  );
+};
+
+export default CollectionShibes;
