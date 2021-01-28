@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { CollectionShibes, ShibeItem } from './CollectionShibes.styles';
+import { CollectionShibesContainer, ShibeItem } from './CollectionShibes.styles';
 
 interface collectionShibesProps {
   urlList: string[];
   clicked: Function;
 }
 
-const collectionShibes = ({ urlList, clicked }: collectionShibesProps) => (
-  <CollectionShibes cellHeight={500} cols={3}>
+const CollectionShibes = ({ urlList, clicked }: collectionShibesProps) => (
+  <CollectionShibesContainer cellHeight={500} cols={3}>
     {urlList.map((url) => (
       <ShibeItem
         key={url}
@@ -21,7 +21,7 @@ const collectionShibes = ({ urlList, clicked }: collectionShibesProps) => (
         <img src={url} alt="Shibe" />
       </ShibeItem>
     ))}
-  </CollectionShibes>
+  </CollectionShibesContainer>
 );
 
-export default collectionShibes;
+export default CollectionShibes;
