@@ -12,7 +12,4 @@ export const CollectionShibesContainer = styled(GridList)`
   overflow: 'scroll';
 `;
 
-export const ShibeItem = styled(GridListTile)`
-  width: 500;
-  height: 450;
-`;
+export const ShibeItem = styled(GridListTile)``;

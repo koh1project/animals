@@ -15,8 +15,9 @@ const CollectionShibes = ({ urlList, clicked }: collectionShibesProps) => {
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const numCol = matches ? 2 : 3;
 
+  const cellHeight = 150;
   return (
-    <CollectionShibesContainer cellHeight={500} cols={numCol}>
+    <CollectionShibesContainer cellHeight={cellHeight} cols={numCol}>
       {urlList.map((url) => (
         <ShibeItem
           key={url}
@@ -26,7 +27,7 @@ const CollectionShibes = ({ urlList, clicked }: collectionShibesProps) => {
           }}
           cols={1}
         >
-          <img src={url} alt="Shibe" />
+          <img src={url} alt="Shibe" height={cellHeight} />
         </ShibeItem>
       ))}
     </CollectionShibesContainer>
