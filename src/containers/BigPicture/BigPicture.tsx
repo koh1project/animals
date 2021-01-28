@@ -5,9 +5,9 @@ import urlProps from '../../interfaces/urlPropType';
 
 const BigPicture = ({ url }: urlProps) => {
   return url ? (
-    <BigPictureStyled data-test="component-bugPicture" src={url}></BigPictureStyled>
+    <BigPictureStyled data-test="component-bigPicture" src={url}></BigPictureStyled>
   ) : (
-    <EmptyBigPictureStyled data-test="component-bugPicture"></EmptyBigPictureStyled>
+    <EmptyBigPictureStyled data-test="component-bigPicture"></EmptyBigPictureStyled>
   );
 };
 
