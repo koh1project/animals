@@ -3,11 +3,22 @@ import { BigPictureStyled, EmptyBigPictureStyled } from './BigPicture.styles';
 
 import urlProps from '../../interfaces/urlPropType';
 
+interface BigPictureProps {
+  [key: string]: any;
+}
+
 const BigPicture = ({ url }: urlProps) => {
+  let props: BigPictureProps = {
+    'data-test': 'component-bigPicture'
+  };
+  if (url) {
+    props.src = url;
+  }
+
   return url ? (
-    <BigPictureStyled data-test="component-bigPicture" src={url}></BigPictureStyled>
+    <BigPictureStyled {...props}></BigPictureStyled>
   ) : (
-    <EmptyBigPictureStyled data-test="component-bigPicture"></EmptyBigPictureStyled>
+    <EmptyBigPictureStyled {...props}></EmptyBigPictureStyled>
   );
 };
 
