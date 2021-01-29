@@ -15,6 +15,5 @@ export const AppBarContainer = styled(AppBar)`
 export const ToolbarContainer = styled(Toolbar)``;
 
 export const TypographyContainer = styled(Typography)`
-  font-variant: h6;
   flex-grow: 1;
 `;
