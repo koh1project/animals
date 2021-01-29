@@ -4,7 +4,7 @@ import './App.css';
 import axios from 'axios';
 
 import CollectionShibes from './containers/CollectionShibes/CollectionShibes';
-import BigPicture from './containers/BigPicture/BigPicture';
+import BigPicture from './containers/BigPicture/BigPictureContainer';
 import Header from './components/Header/Header';
 
 const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
