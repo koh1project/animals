@@ -27,7 +27,7 @@ const CollectionShibes = ({ urlList, clicked }: collectionShibesProps) => {
           }}
           cols={1}
         >
-          <img src={url} alt="Shibe" height={cellHeight} />
+          <img src={url} alt="Shibe" />
         </ShibeItem>
       ))}
     </CollectionShibesContainer>
