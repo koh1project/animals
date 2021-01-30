@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -10,7 +10,7 @@ interface collectionShibesProps {
   clicked: Function;
 }
 
-const CollectionShibes = ({ urlList, clicked }: collectionShibesProps) => {
+const CollectionShibes: FC<collectionShibesProps> = ({ urlList, clicked }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const numCol = matches ? 2 : 3;

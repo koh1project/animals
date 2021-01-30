@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { HeaderContainer, AppBarContainer, ToolbarContainer, TypographyContainer } from './Header.styles';
 
-const Header = () => (
+const Header: FC = () => (
   <div data-test="component-header">
     <HeaderContainer data-test="header">
       <AppBarContainer data-test="header-appbar">

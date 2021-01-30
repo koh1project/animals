@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { BigPictureContainerStyled } from './BigPictureContainer.styles';
 
 import urlProps from '../../interfaces/urlPropType';
@@ -9,7 +9,7 @@ interface BigPictureProps extends Record<string, string | undefined> {
   src?: string;
 }
 
-const BigPicture = ({ url }: urlProps) => {
+const BigPicture: FC<urlProps> = ({ url }) => {
   let props: BigPictureProps = {
     'data-test': 'component-bigPicture'
   };

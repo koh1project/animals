@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './App.css';
 
 import axios from 'axios';
@@ -11,7 +11,7 @@ const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes'
 
 const count = 40;
 
-const App = () => {
+const App: FC = () => {
   const [shibes, setShibes] = useState<string[]>([]);
   const [bigPicture, setBigPicture] = useState<string>('');
 
