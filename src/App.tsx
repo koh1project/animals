@@ -3,7 +3,7 @@ import './App.css';
 
 import axios from 'axios';
 
-import CollectionShibes from './containers/CollectionShibes/CollectionShibes';
+import Collection from './containers/Collection/Collection';
 import BigPicture from './containers/BigPicture/BigPictureContainer';
 import Header from './components/Header/Header';
 
@@ -33,7 +33,7 @@ const App: FC = () => {
     <div className="App" data-test="component-app">
       <Header data-test="" />
       <BigPicture url={bigPicture} />
-      <CollectionShibes urlList={shibes} clicked={setBigPicture} />
+      <Collection urlList={shibes} clicked={setBigPicture} />
     </div>
   );
 };

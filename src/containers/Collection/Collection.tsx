@@ -3,23 +3,23 @@ import { FC } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import { CollectionShibesContainer, ShibeItem } from './CollectionShibes.styles';
+import { CollectionContainer, CollectionItem } from './Collection.styles';
 
-interface collectionShibesProps {
+interface collectionProps {
   urlList: string[];
   clicked: Function;
 }
 
-const CollectionShibes: FC<collectionShibesProps> = ({ urlList, clicked }) => {
+const Collection: FC<collectionProps> = ({ urlList, clicked }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const numCol = matches ? 2 : 3;
 
   const cellHeight = 150;
   return (
-    <CollectionShibesContainer cellHeight={cellHeight} cols={numCol}>
+    <CollectionContainer cellHeight={cellHeight} cols={numCol}>
       {urlList.map((url) => (
-        <ShibeItem
+        <CollectionItem
           key={url}
           onClick={() => {
             console.log(url);
@@ -28,10 +28,10 @@ const CollectionShibes: FC<collectionShibesProps> = ({ urlList, clicked }) => {
           cols={1}
         >
           <img src={url} alt="Shibe" />
-        </ShibeItem>
+        </CollectionItem>
       ))}
-    </CollectionShibesContainer>
+    </CollectionContainer>
   );
 };
 
-export default CollectionShibes;
+export default Collection;
