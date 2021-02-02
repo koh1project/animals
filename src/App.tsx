@@ -6,14 +6,16 @@ import axios from 'axios';
 import Collection from './containers/Collection/Collection';
 import BigPicture from './containers/BigPicture/BigPictureContainer';
 import Header from './components/Header/Header';
+import Spinner from './components/Spinner/Spinner';
 
 const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
 
-const count = 40;
+const count = 10;
 
 const App: FC = () => {
   const [shibes, setShibes] = useState<string[]>([]);
   const [bigPicture, setBigPicture] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     axios
@@ -25,15 +27,23 @@ const App: FC = () => {
       .then((res) => {
         const shibeResponse: string[] = res.data;
         setShibes(shibeResponse);
+        setLoading(false);
       });
   }, []);
 
+  let collection = loading ? <Spinner /> : <Collection urlList={shibes} clicked={setBigPicture} />;
+
   return (
-    //@TODO: Spinner
-    <div className="App" data-test="component-app">
+    <div
+      className="App"
+      data-test="component-app"
+      onScrollCapture={(evt: any) => {
+        console.log(evt.target);
+      }}
+    >
       <Header data-test="" />
       <BigPicture url={bigPicture} />
-      <Collection urlList={shibes} clicked={setBigPicture} />
+      {collection}
     </div>
   );
 };
