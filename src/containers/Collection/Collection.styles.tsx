@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { GridList, GridListTile } from '@material-ui/core';
 
-export const CollectionShibesContainer = styled(GridList)`
+export const CollectionContainer = styled(GridList)`
   width: 100%;
   height: 50vh;
   margin: auto;
@@ -12,4 +12,4 @@ export const CollectionShibesContainer = styled(GridList)`
   overflow: 'scroll';
 `;
 
-export const ShibeItem = styled(GridListTile)``;
+export const CollectionItem = styled(GridListTile)``;

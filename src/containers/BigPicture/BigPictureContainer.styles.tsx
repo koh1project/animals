@@ -8,12 +8,8 @@ const styles = `
   margin: 10rem auto 5rem auto;
 `;
 
-const BigPictureStyled = styled.img`
+const BigPictureContainerStyled = styled.div`
   ${styles}
 `;
 
-const EmptyBigPictureStyled = styled.div`
-  ${styles}
-`;
-
-export { BigPictureStyled, EmptyBigPictureStyled };
+export { BigPictureContainerStyled };
