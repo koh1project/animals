@@ -4,6 +4,7 @@ import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { CollectionContainer, CollectionItem } from './Collection.styles';
+import AddCircleIcon from '../../components/AddCircleIcon/AddCircleIcon';
 
 interface collectionProps {
   urlList: string[];
@@ -30,6 +31,9 @@ const Collection: FC<collectionProps> = ({ urlList, clicked }) => {
           <img src={url} alt="Shibe" />
         </CollectionItem>
       ))}
+      <CollectionItem cols={1}>
+        <AddCircleIcon />
+      </CollectionItem>
     </CollectionContainer>
   );
 };
