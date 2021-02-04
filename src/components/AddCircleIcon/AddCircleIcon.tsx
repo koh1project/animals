@@ -7,7 +7,11 @@ interface addCircleIconProps {
 }
 
 const AddCircleIcon: FC<addCircleIconProps> = ({ onClickAddIcon }) => (
-  <SvgContainer onClick={() => {onClickAddIcon()}}>
+  <SvgContainer
+    onClick={() => {
+      onClickAddIcon();
+    }}
+  >
     <SvgImage
       xmlns="http://www.w3.org/2000/svg"
       width="50"
