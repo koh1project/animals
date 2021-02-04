@@ -4,13 +4,15 @@ import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { CollectionContainer, CollectionItem } from './Collection.styles';
+import AddCircleIcon from '../../components/AddCircleIcon/AddCircleIcon';
 
 interface collectionProps {
   urlList: string[];
   clicked: Function;
+  onClickAddIcon: Function;
 }
 
-const Collection: FC<collectionProps> = ({ urlList, clicked }) => {
+const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const numCol = matches ? 2 : 3;
@@ -30,6 +32,9 @@ const Collection: FC<collectionProps> = ({ urlList, clicked }) => {
           <img src={url} alt="Shibe" />
         </CollectionItem>
       ))}
+      <CollectionItem cols={1}>
+        <AddCircleIcon onClickAddIcon={onClickAddIcon}/>
+      </CollectionItem>
     </CollectionContainer>
   );
 };
