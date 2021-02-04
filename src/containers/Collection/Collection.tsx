@@ -5,19 +5,23 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { CollectionContainer, CollectionItem } from './Collection.styles';
 import AddCircleIcon from '../../components/AddCircleIcon/AddCircleIcon';
+import Spinner from '../../components/Spinner/Spinner';
 
 interface collectionProps {
   urlList: string[];
   clicked: Function;
   onClickAddIcon: Function;
+  loading: boolean;
 }
 
-const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon }) => {
+const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon, loading }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
   const numCol = matches ? 2 : 3;
-
   const cellHeight = 150;
+
+  const lastItem = loading ? <Spinner /> : <AddCircleIcon onClickAddIcon={onClickAddIcon} />;
+
   return (
     <CollectionContainer cellHeight={cellHeight} cols={numCol}>
       {urlList.map((url) => (
@@ -32,9 +36,7 @@ const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon }) =
           <img src={url} alt="Shibe" />
         </CollectionItem>
       ))}
-      <CollectionItem cols={1}>
-        <AddCircleIcon onClickAddIcon={onClickAddIcon}/>
-      </CollectionItem>
+      <CollectionItem cols={1}> {lastItem}</CollectionItem>
     </CollectionContainer>
   );
 };
