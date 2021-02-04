@@ -2,8 +2,12 @@ import React, { FC } from 'react';
 
 import { SvgContainer, SvgImage } from './AddCircleIcon.styles';
 
-const AddCircleIcon: FC = () => (
-  <SvgContainer>
+interface addCircleIconProps {
+  onClickAddIcon: Function;
+}
+
+const AddCircleIcon: FC<addCircleIconProps> = ({ onClickAddIcon }) => (
+  <SvgContainer onClick={() => {onClickAddIcon()}}>
     <SvgImage
       xmlns="http://www.w3.org/2000/svg"
       width="50"
