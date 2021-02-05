@@ -10,7 +10,7 @@ import Spinner from './components/Spinner/Spinner';
 
 const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
 
-const count = 10;
+const count = 2;
 
 const App: FC = () => {
   const [shibes, setShibes] = useState<string[]>([]);
@@ -18,27 +18,24 @@ const App: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    axios
-      .get(`${URL}?count=${count}`, {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
-      .then((res) => {
-        const shibeResponse: string[] = res.data;
-        setShibes(shibeResponse);
-        setLoading(false);
-      });
 
-    // setPromise(TEST_DATA).then((res) => {
-    //   const shibeResponse = res as string[];
-    //   setShibes(shibeResponse);
-    //   setLoading(false);
-    // });
+    getData();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onClickAddIconHandler = () => {
+    getData();
+
+    // setPromise(ADDITIONAL_TEST_DATA).then((res) => {
+    //   const currentShibes = shibes.slice(0, shibes.length);
+    //   const shibeResponse = res as string[];
+    //   setShibes([...currentShibes, ...shibeResponse]);
+    //   setLoading(false);
+    // });
+  };
+
+  const getData = () => {
     setLoading(true);
     axios
       .get(`${URL}?count=${count}`, {
@@ -47,20 +44,12 @@ const App: FC = () => {
         }
       })
       .then((res) => {
-        const currentShibes = shibes.slice(0, shibes.length);
+        const currentShibes = shibes.slice();
         const shibeResponse: string[] = res.data;
         setShibes([...currentShibes, ...shibeResponse]);
         setLoading(false);
       });
-
-    // setPromise(ADDITIONAL_TEST_DATA).then((res) => {
-    //   const currentShibes = shibes.slice(0, shibes.length);
-    //   const shibeResponse = res as string[];
-
-    //   setShibes([...currentShibes, ...shibeResponse]);
-    //   setLoading(false);
-    // });
-  };
+  }
 
   let collection =
     loading && shibes.length === 0 ? (
@@ -73,9 +62,6 @@ const App: FC = () => {
     <div
       className="App"
       data-test="component-app"
-      onScrollCapture={(evt: any) => {
-        // console.log(evt.target);
-      }}
     >
       <Header data-test="" />
       <BigPicture url={bigPicture} />
