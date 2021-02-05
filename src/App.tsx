@@ -10,7 +10,7 @@ import Spinner from './components/Spinner/Spinner';
 
 const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
 
-const count = 2;
+const count = 10;
 
 const App: FC = () => {
   const [shibes, setShibes] = useState<string[]>([]);
