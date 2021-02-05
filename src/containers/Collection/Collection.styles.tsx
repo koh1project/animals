@@ -3,7 +3,7 @@ import { GridList, GridListTile } from '@material-ui/core';
 
 export const CollectionContainer = styled(GridList)`
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   margin: auto;
 
   display: 'flex';

@@ -17,8 +17,8 @@ interface collectionProps {
 const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon, loading }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
-  const numCol = matches ? 2 : 3;
-  const cellHeight = 150;
+  const numCol = matches ? 3 : 4;
+  const cellHeight = 200;
 
   const lastItem = loading ? <Spinner /> : <AddCircleIcon onClickAddIcon={onClickAddIcon} />;
 
