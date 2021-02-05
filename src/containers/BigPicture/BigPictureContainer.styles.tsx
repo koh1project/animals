@@ -5,7 +5,7 @@ const styles = `
   width: 40vw;
   box-shadow: 1rem 0.5rem 0.5rem black;
 
-  margin: 10rem auto 5rem auto;
+  margin: 8rem auto 3rem auto;
 `;
 
 const BigPictureContainerStyled = styled.div`
