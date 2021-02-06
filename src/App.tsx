@@ -41,6 +41,7 @@ const App: FC = () => {
         const currentShibes = shibes.slice();
         const shibeResponse: string[] = res.data;
         setShibes([...currentShibes, ...shibeResponse]);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
