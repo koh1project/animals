@@ -45,6 +45,7 @@ const App: FC = () => {
       })
       .catch((error) => {
         console.log(error);
+        // エラー発生時は予めストックしているURLを使用する
         getDataFromStaticAssets(countLoadingOnce, shibes.length).then((res) => {
           const currentShibes = shibes.slice();
           const shibeResponse = res;
