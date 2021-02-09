@@ -11,7 +11,7 @@ import Spinner from './components/Spinner/Spinner';
 import getDataFromStaticAssets from './resources/staticData';
 
 const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
-
+// 1回のローディングで読み込む画像件数
 const countLoadingOnce = 10;
 
 const App: FC = () => {
