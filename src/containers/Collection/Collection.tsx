@@ -20,7 +20,12 @@ const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon, loa
   const numCol = matches ? 3 : 4;
   const cellHeight = 200;
 
-  const lastItem = loading ? <Spinner /> : <AddCircleIcon onClickAddIcon={onClickAddIcon} />;
+  const lastItem = loading ? (
+    <Spinner />
+  ) : (
+    /* + 追加ローディング用アイコン*/
+    <AddCircleIcon onClickAddIcon={onClickAddIcon} />
+  );
 
   return (
     <CollectionContainer cellHeight={cellHeight} cols={numCol}>

@@ -3,20 +3,7 @@ import { BigPictureContainerStyled } from './BigPictureContainer.styles';
 
 import urlProps from '../../interfaces/urlPropType';
 
-interface BigPictureProps extends Record<string, string | undefined> {
-  // [key: string]: any;
-  'data-test': string;
-  src?: string;
-}
-
 const BigPicture: FC<urlProps> = ({ url }) => {
-  let props: BigPictureProps = {
-    'data-test': 'component-bigPicture'
-  };
-  if (url) {
-    props.src = url;
-  }
-
   const content = url ? (
     // TODO: Should be a component
     <img src={url} alt="柴犬" width="100%" height="100%" />

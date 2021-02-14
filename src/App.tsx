@@ -11,7 +11,7 @@ import Spinner from './components/Spinner/Spinner';
 import getDataFromStaticAssets from './resources/staticData';
 
 const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
-
+// 1回のローディングで読み込む画像件数
 const countLoadingOnce = 10;
 
 const App: FC = () => {
@@ -45,6 +45,7 @@ const App: FC = () => {
       })
       .catch((error) => {
         console.log(error);
+        // エラー発生時は予めストックしているURLを使用する
         getDataFromStaticAssets(countLoadingOnce, shibes.length).then((res) => {
           const currentShibes = shibes.slice();
           const shibeResponse = res;
@@ -54,7 +55,8 @@ const App: FC = () => {
       });
   };
 
-  let collection =
+  const collection =
+   //初回ローディングではコレクションコンテナ全体をSpinner状態にする
     loading && shibes.length === 0 ? (
       <Spinner />
     ) : (
