@@ -55,7 +55,8 @@ const App: FC = () => {
       });
   };
 
-  let collection =
+  const collection =
+   //初回ローディングではコレクションコンテナ全体をSpinner状態にする
     loading && shibes.length === 0 ? (
       <Spinner />
     ) : (
