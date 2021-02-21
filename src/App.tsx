@@ -56,7 +56,7 @@ const App: FC = () => {
   };
 
   const collection =
-   //初回ローディングではコレクションコンテナ全体をSpinner状態にする
+    //初回ローディングではコレクションコンテナ全体をSpinner状態にする
     loading && shibes.length === 0 ? (
       <Spinner />
     ) : (
