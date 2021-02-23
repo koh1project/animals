@@ -31,6 +31,7 @@ const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon, loa
     <CollectionContainer cellHeight={cellHeight} cols={numCol} data-test="container-collection">
       {urlList.map((url) => (
         <CollectionItem
+        data-test='component-collectionItem'
           key={url}
           onClick={() => {
             console.log(url);
