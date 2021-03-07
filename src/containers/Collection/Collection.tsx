@@ -7,7 +7,7 @@ import { CollectionContainer, CollectionItem } from './Collection.styles';
 import AddCircleIcon from '../../components/AddCircleIcon/AddCircleIcon';
 import Spinner from '../../components/Spinner/Spinner';
 
-interface collectionProps {
+export interface collectionProps {
   urlList: string[];
   clicked: Function;
   onClickAddIcon: Function;
@@ -28,9 +28,10 @@ const Collection: FC<collectionProps> = ({ urlList, clicked, onClickAddIcon, loa
   );
 
   return (
-    <CollectionContainer cellHeight={cellHeight} cols={numCol}>
+    <CollectionContainer cellHeight={cellHeight} cols={numCol} data-test="container-collection">
       {urlList.map((url) => (
         <CollectionItem
+        data-test='component-collectionItem'
           key={url}
           onClick={() => {
             console.log(url);

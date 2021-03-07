@@ -4,7 +4,7 @@ import { CircularProgress } from '@material-ui/core';
 import { SpinnerContainer } from './Spinner.styles';
 
 const Spinner = () => (
-  <SpinnerContainer>
+  <SpinnerContainer data-test="component-spinner">
     <CircularProgress color="secondary" />
   </SpinnerContainer>
 );
