@@ -10,7 +10,8 @@ import Spinner from './components/Spinner/Spinner';
 
 import getDataFromStaticAssets from './resources/staticData';
 
-const URL = 'https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes';
+const URL = 'https://dog.ceo/api/breeds/image/random';
+
 // 1回のローディングで読み込む画像件数
 const countLoadingOnce = 10;
 
@@ -29,30 +30,23 @@ const App: FC = () => {
     getData();
   };
 
-  const getData = () => {
+  const getData = async () => {
     setLoading(true);
-    axios
-      .get(`${URL}?count=${countLoadingOnce}`, {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest'
-        }
-      })
-      .then((res) => {
-        const currentShibes = shibes.slice();
-        const shibeResponse: string[] = res.data;
-        setShibes([...currentShibes, ...shibeResponse]);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        // エラー発生時は予めストックしているURLを使用する
-        getDataFromStaticAssets(countLoadingOnce, shibes.length).then((res) => {
-          const currentShibes = shibes.slice();
-          const shibeResponse = res;
-          setShibes([...currentShibes, ...shibeResponse]);
-          setLoading(false);
-        });
-      });
+    let shibeResponse;
+    const currentShibes = shibes.slice();
+
+    try {
+      shibeResponse = (await (await fetch(`${URL}/${countLoadingOnce}`)).json()).message;
+      setShibes([...currentShibes, ...shibeResponse]);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      // エラー発生時は予めストックしているURLを使用する
+      shibeResponse = await getDataFromStaticAssets(countLoadingOnce, shibes.length);
+
+      setShibes([...currentShibes, ...shibeResponse]);
+      setLoading(false);
+    }
   };
 
   const collection =
